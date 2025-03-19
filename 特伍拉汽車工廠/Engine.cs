@@ -2,20 +2,20 @@
 
 namespace 特伍拉汽車工廠
 {
-    internal class Engin
+    internal class Engine
     {
         // Attritube
         int cost, cc;
 
         // Constractor
-        public Engin(int cc)
+        public Engine(int cc)
         {
             this.cc = cc;
-            this.cost = getCost();
+            this.cost = GetCost();
         }
 
         // Method
-        public int getCost()
+        public int GetCost()
         {
             if (this.cc == 1600)
             {

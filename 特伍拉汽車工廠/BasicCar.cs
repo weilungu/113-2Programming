@@ -1,30 +1,33 @@
 ﻿using System;
+using System.Globalization;
 
 namespace 特伍拉汽車工廠
 {
     internal class BasicCar
     {
         // Attritube
-        Engin eng;
-        AirCond ac;
+        Engine eng;
+        Aircond ac;
+        Sound sd;
 
         // Constractor
         public BasicCar(int cc, string type)
         {
-            this.eng = new Engin(cc);
-            this.ac = new AirCond(type);
+            this.eng = new Engine(cc);
+            this.ac = new Aircond(type);
+            this.sd = new Sound();
         }
 
         // Method
         public int getPrice()
         {
-            int price = (int)Math.Round(getCost() * 1.2);
+            int price = (int)Math.Round(GetCost() * 1.2);
 
             return price;
         }
-        public int getCost()
+        public int GetCost()
         {
-            return eng.getCost() + ac.getCost() + 5000; // 引擎成本 ＋ 空調成本 + 5000
+            return eng.GetCost() + ac.GetCost() + 5000; // 引擎成本 ＋ 空調成本 + 5000
         }
     }
 }

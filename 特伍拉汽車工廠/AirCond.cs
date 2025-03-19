@@ -2,19 +2,19 @@
 
 namespace 特伍拉汽車工廠
 {
-    internal class AirCond
+    internal class Aircond
     {
         // Attribute
         int cost;
         string type;
 
         // Constractor
-        public AirCond(string type)
+        public Aircond(string type)
         {
             this.type = type;
         }
 
-        public int getCost()
+        public int GetCost()
         {
             if (this.type == "auto")
             {
