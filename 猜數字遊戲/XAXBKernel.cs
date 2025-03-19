@@ -62,7 +62,7 @@ namespace S1131375XAXBGame
 
             bool result = true;
 
-            int guessTimes = 3;
+            int guessTimes = 4;
             if (someNumber.Length == guessTimes) // 123
             {
                 char[] storage = someNumber.ToCharArray();
@@ -119,7 +119,7 @@ namespace S1131375XAXBGame
 
             return result;
         }
-        public bool IsGameOver(string guessNumber)
+        public bool IsGameover(string guessNumber)
         {
             bool result = guessNumber == this.luckyNum;
             return result;
