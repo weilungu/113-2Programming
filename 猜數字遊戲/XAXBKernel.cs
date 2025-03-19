@@ -40,7 +40,6 @@ namespace S1131375XAXBGame
             }
         }
 
-
         // -- static Method --
         static int Quantity(char element, char[] array) // 回傳重複的元素
         {
@@ -54,7 +53,7 @@ namespace S1131375XAXBGame
             }
             return result;
         }
-        public static bool IsLegal(string guessNumber)
+        public static bool IsLegal(string someNumber)
         {
             // 判斷 guessNumber 三位數字是否滿足：
             // (a) 長度剛好為 3;
@@ -64,9 +63,9 @@ namespace S1131375XAXBGame
             bool result = true;
 
             int guessTimes = 3;
-            if (guessNumber.Length == guessTimes) // 123
+            if (someNumber.Length == guessTimes) // 123
             {
-                char[] storage = guessNumber.ToCharArray();
+                char[] storage = someNumber.ToCharArray();
                 for (int i = 0; i < storage.Length; i++)
                 {
                     result = !(Quantity(storage[i], storage) > 1);
@@ -85,7 +84,6 @@ namespace S1131375XAXBGame
         }
 
         // -- Instance Methods --
-
         public bool SetLuckyNumber(string newLuckyNum)
         {
             bool result = IsLegal(newLuckyNum);
@@ -99,9 +97,9 @@ namespace S1131375XAXBGame
         {
             return this.luckyNum;
         }
-        public string GetGuessResult(string userNumber) // 位置對且相同:A, 相同但位置不對: B
+        public string GetGuessResult(string guessNumber) // 位置對且相同:A, 相同但位置不對: B
         {
-            char[] userInput = userNumber.ToCharArray();
+            char[] userInput = guessNumber.ToCharArray();
             char[] ComputerInput = this.luckyNum.ToCharArray();
             int A = 0, B = 0;
             string result = "";
@@ -121,9 +119,9 @@ namespace S1131375XAXBGame
 
             return result;
         }
-        public bool IsGameOver(string userNumber)
+        public bool IsGameOver(string guessNumber)
         {
-            bool result = userNumber == this.luckyNum;
+            bool result = guessNumber == this.luckyNum;
             return result;
         }
 
