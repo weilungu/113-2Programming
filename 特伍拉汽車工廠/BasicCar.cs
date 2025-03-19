@@ -19,15 +19,17 @@ namespace 特伍拉汽車工廠
         }
 
         // Method
-        public int getPrice()
+        
+        public virtual int GetCost()
+        {
+            return eng.GetCost() + ac.GetCost() + 5000; // 引擎成本 ＋ 空調成本 + 5000
+        }
+
+        public virtual int GetPrice()
         {
             int price = (int)Math.Round(GetCost() * 1.2);
 
             return price;
-        }
-        public int GetCost()
-        {
-            return eng.GetCost() + ac.GetCost() + 5000; // 引擎成本 ＋ 空調成本 + 5000
         }
     }
 }
