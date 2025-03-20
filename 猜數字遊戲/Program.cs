@@ -22,11 +22,7 @@ namespace S1131375XAXBGame
                     playerInput = Console.ReadLine();
                     illegal = !XAXBKernel.IsLegal(playerInput);
 
-                    if(playerInput == "")
-                    {
-                        Console.WriteLine("");
-                    }
-                    else if (illegal)
+                    if (illegal)
                     {
                         Console.WriteLine($"{playerInput}: illegal");
                     }
@@ -37,7 +33,7 @@ namespace S1131375XAXBGame
                 guessResult = kernel.GetGuessResult(playerInput);
                 Console.WriteLine($"{playerInput}: {guessResult}");
 
-            } while (!kernel.IsGameover(playerInput)); // 遊戲結束代表玩家贏了
+            } while (!kernel.IsGameover(playerInput)); // 跳出遊戲代表玩家贏了
 
             Console.WriteLine("You rock!");
         }
