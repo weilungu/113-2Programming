@@ -16,16 +16,16 @@ namespace 特伍拉汽車工廠
 
         public int GetCost()
         {
-            if (this.type == "auto")
+            if (type == "auto")
             {
-                this.cost = 12000;
+                cost = 12000;
             }
             else // "manual"
             {
-                this.cost = 10000;
+                cost = 10000;
             }
 
-            return this.cost;
+            return cost;
         }
     }
 }

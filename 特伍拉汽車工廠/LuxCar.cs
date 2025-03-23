@@ -2,7 +2,7 @@
 
 namespace 特伍拉汽車工廠
 {
-    internal class LuxCar : BasicCar
+    internal class LuxCar : Car
     {
         // Attritube
         Engine eng;
@@ -18,14 +18,15 @@ namespace 特伍拉汽車工廠
         }
 
         // Method
-        public override int GetCost()
+        public override double GetCost()
         {
             return eng.GetCost() + ac.GetCost() + 10000;
         }
 
-        public override int GetPrice()
+        public override double GetPrice()
         {
-            return base.GetPrice();
+            int price = (int)Math.Round(GetCost() * 1.2);
+            return price;
         }
 
     }

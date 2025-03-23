@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace 特伍拉汽車工廠
 {
-    internal class BasicCar
+    internal class BasicCar : Car
     {
         // Attritube
         Engine eng;
@@ -11,7 +11,7 @@ namespace 特伍拉汽車工廠
         Sound sd;
 
         // Constractor
-        public BasicCar(int cc, string type)
+        public BasicCar(int cc, string type) : base(cc, type)
         {
             this.eng = new Engine(cc);
             this.ac = new Aircond(type);
@@ -20,15 +20,14 @@ namespace 特伍拉汽車工廠
 
         // Method
         
-        public virtual int GetCost()
+        public override double GetCost()
         {
             return eng.GetCost() + ac.GetCost() + 5000; // 引擎成本 ＋ 空調成本 + 5000
         }
 
-        public virtual int GetPrice()
+        public override double GetPrice()
         {
             int price = (int)Math.Round(GetCost() * 1.2);
-
             return price;
         }
     }

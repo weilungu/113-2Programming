@@ -11,13 +11,13 @@ namespace 特伍拉汽車工廠
         public Engine(int cc)
         {
             this.cc = cc;
-            this.cost = GetCost();
+            cost = GetCost();
         }
 
         // Method
         public int GetCost()
         {
-            if (this.cc == 1600)
+            if (cc == 1600)
             {
                 return 20000;
             }
