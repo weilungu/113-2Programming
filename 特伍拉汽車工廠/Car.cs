@@ -6,13 +6,15 @@ namespace 特伍拉汽車工廠
     {
         int cc;
         string type;
-        public Car(int cc, string type)
+        protected Car(int cc, string type)
         {
-            this.cc = cc;
-            this.type = type;
+           this.cc = cc;
+           this.type = type;
         }
-
-        public abstract double GetCost();
-        public abstract double GetPrice();
+        public abstract int GetCost();
+        public abstract int GetPrice();
+        
+        public int CC { get => cc;}
+        public string TYPE { get => type;}
     }
 }

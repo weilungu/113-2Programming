@@ -18,11 +18,11 @@ namespace 特伍拉汽車工廠
         }
 
         // Method
-        public override double GetCost()
+        public override int GetCost()
         {
             return base.GetCost() + sd.GetCost();
         }
-        public override double GetPrice()
+        public override int GetPrice()
         {
             return base.GetPrice();
         }

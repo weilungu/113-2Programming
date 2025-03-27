@@ -8,28 +8,46 @@ namespace 特伍拉汽車工廠
         {
             public static void Main(string[] args)
             {
+                // 產生倉庫物件
                 Warehouse wh = new Warehouse(100);
-
-                BasicCar c1 = new BasicCar(1600, "manual");
-                LuxCar c2 = new SuperLuxCar(2000, "auto");
-                SuperLuxCar c3 = new SuperLuxCar(2000, "auto");
-
-                Car[] cars = new Car[] {c1, c2, c3};
-
-                wh.AddCar(cars[0]);
-                wh.AddCar(cars[1]);
-                wh.AddCar(cars[2]);
-
-                int cp, tc, tp;
-                cp = wh.GetCapacity();
-                //tc = wh.GetTotalCost();
-                //tp = wh.GetTotalPrice();
-                int[] test = new int[1] { cp };
-
-                for(int i = 0; i < test.Length; i++)
+                // 重複讀取汽車資訊
+                String carData = Console.ReadLine();
+                while (carData != null && carData.Length > 0)
                 {
-                    Console.WriteLine(test[i]);
+                    String[] carInfo = carData.Split(' ');
+                    // 標準格式：B 1600 manual,「格式不對」就跳過該筆資料！
+                    if (carInfo.Length == 3)
+                    {
+                        char model = (carInfo[0].Length == 0) ? 'X' : carInfo[0][0];
+                        // 假如已經沒有資料了...
+                        if (model == 'X') break;
+
+                        int cc = int.Parse(carInfo[1]);
+                        String aircond = carInfo[2];
+
+                        switch (model)
+                        {
+                            // HINT: 根據車款種類生成對應的物件，然後加入倉庫內
+                            case 'B': // basicCar
+                                BasicCar B = new BasicCar(cc, aircond);
+                                wh.AddCar(B); break;
+                            case 'L':
+                                LuxCar L = new LuxCar(cc, aircond);
+                                wh.AddCar(L); break;
+                            case 'S':
+                                SuperLuxCar S = new SuperLuxCar(cc, aircond);
+                                wh.AddCar(S); break;
+                            default: // 確保不會讓 null 進入 array 中
+                                continue; 
+                        }
+                    }
+                    // 讀取下一筆資料
+                    carData = Console.ReadLine();
                 }
+                //
+                Console.WriteLine("Total cost: " + wh.GetTotalCost());
+                Console.WriteLine("Total price: " + wh.GetTotalPrice());
+                Console.WriteLine("Available capacity: " + wh.GetCapacity());
             }
         }
     }

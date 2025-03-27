@@ -16,7 +16,6 @@ namespace 特伍拉汽車工廠
         // Methods
         public void AddCar(Car newCar)
         {
-            
             garage[index] = newCar;
             index++;
             totalCapacity--;
@@ -25,25 +24,29 @@ namespace 特伍拉汽車工廠
         {
             return totalCapacity;
         }
-        //public int GetTotalCost()
-        //{
-        //    int totalCost = 0;
-        //    foreach (car in garage)
-        //    {
-        //        totalCost += (int)car.GetCost();
-        //    }
-
-        //    return totalCost;
-        //}
-        //public int GetTotalPrice()
-        //{
-        //    int totalPrice = 0;
-        //    foreach (Car car in garage)
-        //    {
-        //        totalPrice += (int)car.GetPrice();
-        //    }
-
-        //    return totalPrice;
-        //}
+        public int GetTotalCost()
+        {
+            int cost = 0;
+            foreach(Car car in garage)
+            {
+                if(car != null)
+                {
+                    cost += car.GetCost();
+                }
+            }
+            return cost;
+        }
+        public int GetTotalPrice()
+        {
+            int price = 0;
+            foreach(Car car in garage)
+            {
+                if (car != null)
+                {
+                    price += car.GetPrice();
+                }
+            }
+            return price;
+        }
     }
 }

@@ -18,12 +18,12 @@ namespace 特伍拉汽車工廠
         }
 
         // Method
-        public override double GetCost()
+        public override int GetCost()
         {
             return eng.GetCost() + ac.GetCost() + 10000;
         }
 
-        public override double GetPrice()
+        public override int GetPrice()
         {
             int price = (int)Math.Round(GetCost() * 1.2);
             return price;
