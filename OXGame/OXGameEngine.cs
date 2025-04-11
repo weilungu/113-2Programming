@@ -6,7 +6,7 @@ namespace OXGame
     {
         private char[,] board;
         private int counter = 0;
-        public OXGameEngine()
+        public OXGameEngine() 
         {
             // 初始化棋盤，3x3，預設為空格
             board = new char[3, 3]
