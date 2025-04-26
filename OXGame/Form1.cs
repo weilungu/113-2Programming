@@ -16,10 +16,11 @@ namespace OXGame
             InitGame();
         }
 
+
         private void InitGame()
         {
             // 動態生成按鈕 *9
-            for(int i=0; i<oxButtons.GetLength(0); i++)
+            for(int i=0; i<oxButtons.GetLength(0); i++) // 產生 1~9 的按鈕
             {
                 for(int j=0;  j<oxButtons.GetLength(1); j++)
                 {
@@ -40,6 +41,9 @@ namespace OXGame
                     oxButtons[i, j] = btn;
                 }
             }
+
+            // 產生按鈕 0
+
         }
 
         private void button1_Click(object sender, EventArgs e)
