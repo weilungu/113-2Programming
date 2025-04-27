@@ -1,12 +1,5 @@
-﻿//using System;
-
-//namespace XAXB視窗版
-//{
-//    internal class XAXBEngine
-//    {
-//    }
-//}
-using System;
+﻿using System;
+using System.Diagnostics.Metrics;
 
 namespace S1131375XAXBGame
 {
@@ -14,15 +7,15 @@ namespace S1131375XAXBGame
     {
         // --Attribute--
         string luckyNum;
-        int guessTimes;
+        int guessNums;
 
         // -- Constrctor --
         public XAXBEngine()
         {
-            this.guessTimes = 3;
+            this.guessNums = 4;
             Random random = new Random();
 
-            char[] nums = new char[guessTimes];
+            char[] nums = new char[guessNums];
             int index = 0;
             while (true)
             {
@@ -48,6 +41,8 @@ namespace S1131375XAXBGame
             }
         }
 
+        public int GetGuessNum { get => guessNums; }
+
         // -- static Method --
         static int Quantity(char element, char[] array) // 回傳重複的元素
         {
@@ -61,17 +56,17 @@ namespace S1131375XAXBGame
             }
             return result;
         }
-        public static bool IsLegal(string someNumber)
+
+        // -- Instance Methods --
+        public bool IsLegal(string someNumber)
         {
             // 判斷 guessNumber 三位數字是否滿足：
-            // (a) 長度剛好為 3;
+            // (a) 長度剛好為 guessNum 的數量;
             // (b) 數字不重複
             // 滿足上述條件就回傳 true, 否則回傳 false
 
             bool result = true;
-
-            int guessTimes = 4;
-            if (someNumber.Length == guessTimes) // 123
+            if (someNumber.Length == this.guessNums) // 123
             {
                 char[] storage = someNumber.ToCharArray();
                 for (int i = 0; i < storage.Length; i++)
@@ -91,7 +86,11 @@ namespace S1131375XAXBGame
             return result;
         }
 
-        // -- Instance Methods --
+        public bool isFilled(int counter)
+        {
+            return counter >= guessNums;
+        }
+
         public bool SetLuckyNumber(string newLuckyNum)
         {
             bool result = IsLegal(newLuckyNum);
@@ -132,7 +131,5 @@ namespace S1131375XAXBGame
             bool result = guessNumber == this.luckyNum;
             return result;
         }
-
-
     }
 }
