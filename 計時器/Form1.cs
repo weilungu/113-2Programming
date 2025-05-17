@@ -27,6 +27,8 @@ namespace 計時器
                 timer1.Stop(); // 停止計時
                 counter = 100;
                 lb_displayTime.Text = counter.ToString(); // 重新校正顯示時間的標籤
+
+                MessageBox.Show(text: "時間到", caption: "時間到"); // 提醒時間到
             }
         }
     }
